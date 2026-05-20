@@ -1,0 +1,34 @@
+{
+  "RecipeFormatVersion": "2020-01-25",
+  "ComponentName": "com.fl.Worker",
+  "ComponentVersion": "1.0.0",
+  "ComponentDescription": "Federated Learning Worker Component",
+  "ComponentPublisher": "CSE546",
+  "ComponentConfiguration": {
+    "DefaultConfiguration": {
+      "PARTITION_ID": "0",
+      "ASU_ID": "1233745983",
+      "IOT_ENDPOINT": ""
+    }
+  },
+  "Manifests": [
+    {
+      "Platform": {
+        "os": "linux"
+      },
+      "Lifecycle": {
+        "Install": {
+          "Script": "pip3 install awsiotsdk boto3 torch torchvision pillow numpy --quiet"
+        },
+        "Run": {
+          "Script": "PARTITION_ID={configuration:/PARTITION_ID} ASU_ID={configuration:/ASU_ID} IOT_ENDPOINT={configuration:/IOT_ENDPOINT} python3 {artifacts:path}/worker.py"
+        }
+      },
+      "Artifacts": [
+        {
+          "URI": "s3://PLACEHOLDER/worker.py"
+        }
+      ]
+    }
+  ]
+}
