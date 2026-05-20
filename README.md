@@ -98,18 +98,22 @@ Greengrass lets you deploy and manage software components on edge devices remote
 ## Project Structure
 
 ```
-federated-learning-greengrass/
+Federated-Learning-on-AWS-IoT-Greengrass/
 │
 ├── worker/
-│   └── worker.py            # FL worker component (runs on each edge device)
+│   └── worker.py                      # FL worker component (runs on each edge device)
 │
 ├── aggregator/
-│   └── aggregator.py        # Lambda aggregator (FedAvg on local model updates)
+│   └── aggregator.py                  # Lambda aggregator (FedAvg on local model updates)
 │
-├── greengrass/
-│   └── recipes/
-│       └── com.fl.Worker-1.0.0.json   # Greengrass component recipe
+├── Greengrass/
+│   └── recipe/
+│       └── com.fl.Worker-1.0.0.json  # Greengrass component recipe
 │
+├── scripts/
+│   └── deploy_component.sh           # Automates deployment to all 10 workers via SSH
+│
+├── LICENSE
 └── README.md
 ```
 
